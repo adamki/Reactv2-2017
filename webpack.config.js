@@ -8,6 +8,9 @@ module.exports = {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
   },
+  devServer: {
+    publicPath: '/public/'
+  },
   resolve: {
     extensions: ['.js', '.json']
   },
@@ -19,10 +22,28 @@ module.exports = {
   module: {
     rules: [
       {
-        include: path.resolve(__dirname, 'js'),
-        exclude: /node_modules/,
+        enforce: 'pre',
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: path.resolve(__dirname, 'js'),
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false
+            }
+          }
+        ]
       }
     ]
   }

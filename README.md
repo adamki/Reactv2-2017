@@ -3,8 +3,11 @@
 App using the latest in React Technologies, including:
 
 * React
+* Redux
 * Webpack 2
-* Router 4
+* Router v4
+* Jest
+* ESLint
 
 This is not my Application, it is a code along as described below: 
 
