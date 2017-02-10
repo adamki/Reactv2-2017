@@ -1,11 +1,15 @@
 import React from 'react'
 
-var h1 = React.DOM.h1
-
 var MyTitle = React.createClass({
   render: function () {
+    const style = {color: this.props.color}
+
     return (
-      h1({style: {color: this.props.color}}, `Here is a Team Member: ${this.props.title}`)
+      <div>
+        <h1 style={style}>
+          A team member named: {this.props.title}
+        </h1>
+      </div>
     )
   }
 })
