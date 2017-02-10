@@ -1,5 +1,13 @@
 # A Complete Intro to React
 
+App using the latest in React Technologies, including:
+
+* React
+* Webpack 2
+* Router 4
+
+This is not my Application, it is a code along as described below: 
+
 Welcome to a complete intro to React! The site actual workshop material for this repo can be found [here][gh-page]. On the master branch you will find the completed project. On the start branch you will find the barebones boilerplater of the project designed to help you get started.
 
 ## Contributing

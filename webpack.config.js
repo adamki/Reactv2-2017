@@ -2,12 +2,9 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './js/ClientApp.js',
   devtool: 'cheap-module-source-map',
   output: {
     path: path.join(__dirname, '/public'),
-    publicPath: '/public/',
-    filename: 'bundle.js'
   },
   resolve: {
     // alias: {
