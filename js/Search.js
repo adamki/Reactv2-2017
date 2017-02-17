@@ -1,10 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
-const { arrayOf, shape, string } = React.PropTypes
-
 import ShowCard from './ShowCard'
 import Header from './Header'
+const { arrayOf, shape, string } = React.PropTypes
 
 const Search = React.createClass({
   propTypes: {
@@ -37,4 +35,5 @@ const mapStateToProps = (state) => {
   }
 }
 
+export const Unwrapped = Search
 export default connect(mapStateToProps)(Search)
