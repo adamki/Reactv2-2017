@@ -27,7 +27,7 @@ const App = React.createClass({
                 const shows = preload.shows.filter((show) => props.params.id === show.imdbID)
 
                 return <Details show={shows[0]} {...props} />
-                }}
+              }}
               />
             </div>
           </Provider>

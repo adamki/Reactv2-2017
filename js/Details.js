@@ -1,5 +1,5 @@
 import React from 'react'
-const { shape, string } = React.PropTypes
+const { string } = React.PropTypes
 import axios from 'axios'
 
 import Header from './Header'
