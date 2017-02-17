@@ -28,9 +28,9 @@ const App = React.createClass({
 
                 return <Details show={shows[0]} {...props} />
               }}
-              />
-            </div>
-          </Provider>
+            />
+          </div>
+        </Provider>
       </BrowserRouter>
     )
   }

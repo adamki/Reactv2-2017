@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
-import { setSearchTerm } from './actionCreators'
+import { setSearchTerm, clearSearchTerm } from './actionCreators'
 
 const { string, func, object } = React.PropTypes
 
@@ -18,8 +18,10 @@ const Landing = React.createClass({
   },
   handleSearchSubmit (e) {
     e.preventDefault()
-    console.log('woot')
     this.context.router.transitionTo('/search')
+  },
+  handleClick (e) {
+    this.props.dispatch(clearSearchTerm)
   },
   render: function () {
     return (
@@ -32,7 +34,7 @@ const Landing = React.createClass({
             type='text'
             placeholder='Search'
           />
-          <Link to='/search'>or Browse All</Link>
+          <Link to='/search' onClick={this.handleClick}>or Browse All</Link>
         </form>
       </div>
     )
@@ -41,7 +43,8 @@ const Landing = React.createClass({
 
 const mapStateToProps = (state) => {
   return {
-    searchTerm: state.searchTerm
+    searchTerm: state.searchTerm,
+    clearSearchTerm: state.clearSearchTerm
   }
 }
 

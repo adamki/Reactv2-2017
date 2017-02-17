@@ -8,6 +8,7 @@ import Header from './Header'
 
 const Search = React.createClass({
   propTypes: {
+    searchTerm: string,
     shows: arrayOf(shape({
       title: string,
       description: string

@@ -25,11 +25,11 @@ class Header extends React.Component {
       )
     } else {
       utilSpace = (
-          <h2>
-            <Link to='/search'>
-              Back
-            </Link>
-          </h2>
+        <h2>
+          <Link to='/search'>
+            Back
+          </Link>
+        </h2>
       )
     }
     return (
