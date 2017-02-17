@@ -1,5 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 const { arrayOf, shape, string } = React.PropTypes
+
 import ShowCard from './ShowCard'
 import Header from './Header'
 
@@ -10,27 +13,15 @@ const Search = React.createClass({
       description: string
     }))
   },
-  getInitialState () {
-    return {
-      searchTerm: ''
-    }
-  },
-  handleSearchTermChange (event) {
-    this.setState({searchTerm: event.target.value})
-  },
   render () {
     return (
       <div className='search'>
-        <Header
-          showSearch
-          searchTerm={this.state.searchTerm}
-          handleSearchTermChange={this.handleSearchTermChange}
-        />
+        <Header showSearch />
         <div>
           {this.props.shows
             .filter((show) => `${show.title} ${show.description}`
               .toUpperCase()
-              .indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+              .indexOf(this.props.searchTerm.toUpperCase()) >= 0)
             .map((show) => <ShowCard key={show.imdbID} {...show} />
           )}
         </div>
@@ -39,4 +30,10 @@ const Search = React.createClass({
   }
 })
 
-export default Search
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+
+export default connect(mapStateToProps)(Search)
