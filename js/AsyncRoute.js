@@ -13,6 +13,7 @@ const AsyncRoute = React.createClass({
   },
   componentDidMount () {
     this.props.loadingPromise.then((module) => {
+      console.log(this.props.loadingPromise, module)
       this.component = module.default
       this.setState({ loaded: true })
     })

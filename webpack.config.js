@@ -1,9 +1,9 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   context: __dirname,
   entry: './js/ClientApp.js',
-  devtool: 'eval',
   output: {
     publicPath: '/public/',
     path: path.join(__dirname, '/public'),
@@ -13,6 +13,13 @@ module.exports = {
     publicPath: '/public/',
     historyApiFallback: true
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: true
+      }
+    })
+  ],
   resolve: {
     extensions: ['.js', '.json']
   },
